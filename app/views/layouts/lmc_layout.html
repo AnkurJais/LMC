@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title><%= yield(:title) %></title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <%= stylesheet_link_tag "application", media: "all" %>
+	<%= javascript_include_tag "application" %>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="head">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <a href="index.html">
+                    <%= image_tag 'logo.jpg', height: "63", width: "300" %>
+                        </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 text-center" >
+                     <img src="/assets/top-mouse.png "  class="header-mid" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <h4><span>Call:</span> +01-4589-987-567</h4>
+                    <h4><span>E-mail:</span> info@domain.com</h4>
+                    <% if user_signed_in? %>
+                      <li>
+                      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+                      </li>
+                    <% end %>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <% devise_flash %>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+        <%= value %>
+      </div>
+    <% end %>
+ <%= yield %>
+
+    <div id="footer">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <h3>Physical Location</h3>
+                    <p>
+                        <i>Addresss :</i> 125/890 , New York Street,
+                        <br />
+                         United States of America (USA).
+                        <br />
+                       &copy; 2014 yourdomian | by <a href="http://www.binarytheme.com/" style="color:#fff;" target="_blank">binarytheme.com</a>
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <h3>Get Quick Help</h3>
+                    <h4><span> Call: </span>+01-4589-987-567</h4>
+                    <h4><span>E-mail: </span>info@domain.com</h4>
+                    <h4><span>Skype:</span> sonasup</h4>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+
+                    <h3>Subscribe For Updates</h3>
+                    <form>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" required="required" placeholder="Your Email" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-danger">Click To Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <!--  Jquery Core Script -->
+
+</body>
+</html>   

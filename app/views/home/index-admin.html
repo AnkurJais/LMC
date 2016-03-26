@@ -1,0 +1,40 @@
+﻿    <% content_for :title, "Admin Login Page" %>
+    <section >
+        <div class="container">
+            <div class="row">
+                <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+                <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+                <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <%= image_tag "up.png", class: "img-responsive"%>
+                    <h3>Premium Support Company</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                       Nulla pretium lectus vel justo iaculis blandit.
+                       Nulla facilisi. In hac habitasse platea dictumst.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <%= image_tag "moniter.png", class: "img-responsive img-max-width"%>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <h3>Admin Login </h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" required="required" placeholder="Username / Email" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" required="required" placeholder="Your Password" />
+                        </div>
+                        <div class="form-group">
+                            <a href="admin-dashboard.html" class="btn btn-success">Click To Login</a>
+                        </div>
+                        <a href="#">Forgot Password ?</a>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
