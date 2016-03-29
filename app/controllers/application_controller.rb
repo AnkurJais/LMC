@@ -21,4 +21,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_in_path_for(resource)
+    if current_user.has_role? "admin"
+      registration_path
+    end  
+  end
+
 end

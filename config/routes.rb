@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users
   root to: "home#index"
   get 'index-user' => "home#index_user"
   get 'index-admin' => "home#index_admin"
-  get 'registration' => "home#registration", :as => 'registration'
+  get 'registration' => "home#registration", :as => 'registration' 
+  devise_for :users, controllers: {sessions: "registrations/sessions"}
+  # authenticated :user do
+  #   root to: 'home#registration'', as: :authenticated_root
+  # end
+  # authenticated :user do
+  #   root :to => 'home#registration', :constraints => lambda { |request| request.env['warden'].user.role == 'admin' }, :as => 'admin_signed_home'
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

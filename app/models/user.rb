@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  rolify
   require "#{Rails.root}/lib/home/custom_failure"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -26,7 +27,6 @@ class User
   field :last_sign_in_at,    type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
-
   ## Confirmable
   # field :confirmation_token,   type: String
   # field :confirmed_at,         type: Time

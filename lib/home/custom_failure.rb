@@ -6,7 +6,6 @@ class CustomFailure < Devise::FailureApp
 
     # You need to override respond to eliminate recall
     def respond
-      binding.pry
       if http_auth?
         http_auth
       else
